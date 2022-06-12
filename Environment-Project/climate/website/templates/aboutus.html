@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+        <title> Meteo Mapper</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/about.css') }}" >
+<!--        <link rel="stylesheet" href="./css/about.css">-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="topnav" id="myTopNav">
+                    <a href="home" class= "logoNav">
+                    <img src="./static/media/earth.svg" alt="black and white globe logo"/>
+                </a>
+                    <a href="home">Home</a>
+                    <a href="aboutus">About Us</a>
+                    <a href="weather">Location Finder</a>
+                     <a href="map">Map</a>
+                    <a href="history">History</a>
+                    <a href="sign_up">Sign Up</a>
+                     {%if user_logged_in%}
+                    <a href={{"logged_in"}}>My Profile</a>
+                    <a href={{"logout"}}>Log Out</a>
+                    {%else%}
+                    <a href="login">Login</a>
+                    {%endif%}
+                </div>
+            </nav>
+        </header>
+
+        <main>
+        <h1>Meteo Mapper</h1>
+            <div class = "img">
+             <img src="./static/media/maps.png" alt="Digital Map"/>
+            </div>
+
+        <h1>The idea</h1>
+            <p class = "description2">
+                This mapping web application idea came about from all of our interest in climate change and trying to help out with this crisis by creating a tracker.
+            </p>
+            </div>
+
+        <h1>The Team</h1>
+        <div class="row">
+        <div class="column">
+        <img src="./static/media/IMG-20210808-WA0004.jpg" alt="Hannah" style="width:100%"></div>
+        <div class="column">
+        <img src="./static/media/jessica.jpeg" alt="Jessica" style="width:100%"></div>
+        <div class="column">
+        <img src="https://ca.slack-edge.com/T02AR6K182X-U02FY03K4RF-8c677be8dccf-512" alt="Samanta" style="width:100%"></div>
+        </div>
+
+
+
+        </main>
+             <footer>
+                <div class="location">
+                    <p>Bristol / London </p>
+                </div>
+                <div class="socialMedia">
+
+                    <a href="https://github.com/panda88-hub" class="GitHub">
+                        <img src="./static/media/github.svg" alt="github logo"/>
+                    </a>
+
+                    <a href="https://github.com/SamantaWildlife" class="GitHub">
+                        <img src="./static/media/github.svg" alt="github logo"/>
+                    </a>
+
+                    <a href="https://github.com/HannahBoyd123" class="GitHub">
+                        <img src="./static/media/github.svg" alt="github logo"/>
+                    </a>
+
+                </div>
+                <div class="contactFaq">
+                    <a href="FAQ.html" class="FAQ">
+                       FAQ
+                    </a>
+                </div>
+            </footer>
+        </body>
+
+
+
+</html>

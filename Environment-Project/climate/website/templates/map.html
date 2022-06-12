@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/about.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+
+    <style type="text/css">
+      body{
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        width: 100vw;
+        height: 80vh;
+      }
+    </style>
+  </head>
+  <body>
+   <header>
+         <nav>
+             <a href="home" class= "logoNav">
+                 <img src="./static/media/earth.svg" alt="black and white globe logo"/>
+             </a>
+             <div class="topnav" id="myTopNav">
+                 <a href="home">Home</a>
+                 <a href="aboutus">About Us</a>
+                 <a href="weather">Location Finder</a>
+                  <a href="map">Map</a>
+                 <a href="history">History</a>
+                 <a href="sign_up">Sign Up</a>
+                  {%if user_logged_in%}
+                 <a href={{"logged_in"}}>My Profile</a>
+                 <a href={{"logout"}}>Log Out</a>
+                    {%else%}
+                    <a href="login">Login</a>
+                    {%endif%}
+             </div>
+         </nav>
+ </header>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script>
+
+        const map = L.map('map', {scrollWheelZoom:true}).setView([30, 10], 2);
+
+        const basemaps = {
+          StreetView: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'})
+        };
+
+        const overlayMaps = {
+         Pressure: L.tileLayer.wms('http://tile.openweathermap.org/map/pressure_new/{z}/{x}/{y}.png?appid=6bf0b5b210ae108911dc115a50ddcc7b'),
+         Temperature: L.tileLayer('http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=6bf0b5b210ae108911dc115a50ddcc7b'),
+         Precipitation: L.tileLayer.wms('http://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=6bf0b5b210ae108911dc115a50ddcc7b'),
+         Clouds: L.tileLayer.wms('http://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=6bf0b5b210ae108911dc115a50ddcc7b')
+        };
+
+
+        L.control.layers(basemaps, overlayMaps).addTo(map);
+
+        basemaps.StreetView.addTo(map)
+
+    </script>
+  <footer>
+    <div class="location">
+        <p>Bristol / London </p>
+    </div>
+    <div class="socialMedia">
+
+        <a href="https://github.com/panda88-hub" class="GitHub">
+            <img src="./static/media/github.svg" alt="github logo"/>
+        </a>
+
+        <a href="https://github.com/SamantaWildlife" class="GitHub">
+            <img src="./static/media/github.svg" alt="github logo"/>
+        </a>
+
+        <a href="https://github.com/HannahBoyd123" class="GitHub">
+            <img src="./static/media/github.svg" alt="github logo"/>
+        </a>
+
+    </div>
+    <div class="contactFaq">
+        <a href="FAQ.html" class="FAQ">
+           FAQ
+        </a>
+    </div>
+</footer>
+ </body>
+
+</html>

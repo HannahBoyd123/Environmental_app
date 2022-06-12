@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Meteo Mapper</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./static/css/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+        <script src="./js/app.js"></script>
+    </head>
+<body>
+    <header>
+        <nav>
+            <div class="topnav" id="myTopNav">
+                <a href="home" class= "logoNav">
+                <img src="./static/media/earth.svg" alt="earth logo"/>
+            </a>
+              <a href="home">Home</a>
+              <a href="aboutus">About Us</a>
+              <a href="weather">Location Finder</a>
+                <a href="map">Map</a>
+              <a href="history">History</a>
+                <a href="/pollution">Pollution</a>
+              <a href="sign_up">Sign Up</a>
+              {%if user_logged_in%}
+                    <a href={{"logged_in"}}>My Profile</a>
+                    <a href={{"logout"}}>Log Out</a>
+                    {%else%}
+                    <a href="login">Login</a>
+                    {%endif%}
+            </div>
+        </nav>
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/css/style.css">
+
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<br />
+  {% for message in get_flashed_messages() %}
+<center><h2>{{ message }}</h2></center>
+  {% endfor %}
+  <center class="row">
+    <form method="post" class="col-md-6 col-md-offset-3">
+      <div class="input-group">
+        <input type="text" class="form-control" name="city" placeholder="Search">
+        <div class="input-group-btn">
+          <button class="btn btn-primary" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+        <form>
+  </center>
+  <div class="row">
+    {% if data.country_code and data.coordinate and data.temp and data.pressure and data.humidity %}
+    <div class="col-md-6 col-md-offset-3">
+      <h1>City name: {{data.cityname}}</h1>
+        <h3>Country code: {{data.country_code}}</h3>
+        <h3>Coordinate: {{data.coordinate}}</h3>
+        <h3>Temperature (in kelvin): {{data.temp}}</h3>
+        <h3>Temperature (in celsius): {{data.temp_cel}}</h3>
+        <h3>Pressure: {{data.pressure}} </h3>
+        <h3>Humidity: {{data.humidity}}</h3>
+    </div>
+    {% endif %}
+  </div>
+<center> <a href={{"save_search"}}><div><h2><strong>Save City search to my profile</strong></h2></div></a></center>
+<center> <a href=pollution/{{data.cityname}}/{{data.coordinate}}><div><h2><strong>See Pollution Data</strong></h2></div></a></center>
+
+ <footer>
+                <div class="location">
+                    <p>Bristol / London </p>
+                </div>
+                <div class="socialMedia">
+
+                    <a href="https://github.com/panda88-hub" class="GitHub">
+                        <img src="./static/media/github.svg" alt="github logo"/>
+                    </a>
+
+                    <a href="https://github.com/SamantaWildlife" class="GitHub">
+                        <img src="./static/media/github.svg" alt="github logo"/>
+                    </a>
+
+                    <a href="https://github.com/HannahBoyd123" class="GitHub">
+                        <img src="./static/media/github.svg" alt="github logo"/>
+                    </a>
+
+                </div>
+                <div class="contactFaq">
+                    <a href="FAQ" class="FAQ">
+                       FAQ
+                    </a>
+                </div>
+            </footer>
+</body>
+</html>

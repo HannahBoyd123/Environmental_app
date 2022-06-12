@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+        <title> Meteo Mapper</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/sign_up_login.css') }}">
+<!--        <link rel="stylesheet" href="./css/about.css">-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/sign_up_login.css') }}">
+<!--        <link href="./css/about.css" rel="stylesheet">-->
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="topnav" id="myTopNav">
+                    <a href="home" class= "logoNav">
+                    <img src="./static/media/earth.svg" alt="black and white globe logo"/>
+                </a>
+                    <a href="home">Home</a>
+                    <a href="aboutus">About Us</a>
+                    <a href="weather">Location Finder</a>
+                    <a href="map">Map</a>
+                    <a href="history">History</a>
+                    <a href="sign_up">Sign Up</a>
+                    {%if user_logged_in%}
+                    <a href={{"logged_in"}}>My Profile</a>
+                    <a href={{"logout"}}>Log Out</a>
+                    {%else%}
+                    <a href="login">Login</a>
+                    {%endif%}
+                </div>
+            </nav>
+        </header>
+        <main>
+          <form method="POST">
+          <h1 align="center">Sign Up</h1>
+          <h2>
+<div class="form-group">
+              <label for="email">Email Address</label>
+                  <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Enter email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              placeholder="Enter first name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password1">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password1"
+              name="password1"
+              placeholder="Enter password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password2">Password (Confirm)</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password2"
+              name="password2"
+              placeholder="Confirm password"
+            />
+          </div>
+          <br />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </h2></form>
+            <h3>{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+       {{ message }}
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %} </h3>
+        </main>
+ <footer>
+                <div class="location">
+                    <p>Bristol / London </p>
+                </div>
+                <div class="socialMedia">
+
+                    <a href="https://github.com/panda88-hub" class="GitHub">
+                        <img src="./static/media/github.svg" alt="github logo"/>
+                    </a>
+
+                    <a href="https://github.com/SamantaWildlife" class="GitHub">
+                        <img src="./static/media/github.svg" alt="github logo"/>
+                    </a>
+
+                    <a href="https://github.com/HannahBoyd123" class="GitHub">
+                        <img src="./static/media/github.svg" alt="github logo"/>
+                    </a>
+
+                </div>
+                <div class="contactFaq">
+                    <a href="FAQ.html" class="FAQ">
+                       FAQ
+                    </a>
+                </div>
+            </footer>
+    </body>
+</html>
+
+
+
+

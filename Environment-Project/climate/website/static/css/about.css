@@ -1,0 +1,177 @@
+body {
+    font-family: 'Abril Fatface', serif;
+    text-shadow: 0px 0px 0px #aaa;
+    background-color: beige;
+        color: #072F5F;
+
+  }
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+}
+
+.description1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: beige;
+    color: #072F5F;
+}
+
+.img {
+  float: center;
+  width: 1300px;
+  padding: px;
+}
+
+.img:hover {
+    opacity: 0.3;
+}
+
+.column {
+  float: left;
+  width: 32%;
+  padding: 10px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.column:hover {
+    opacity: 0.3;
+  }
+
+.form-group {
+    font-size: 30px;
+    font-family: "Yeseva One", cursive;
+    text-shadow: none;
+}
+
+.description2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: "Abril Fatface", serif;
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: beige;
+    color: #072F5F;
+}
+
+    /* navbar styling */
+nav {
+    position: sticky;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+   }
+
+.logoNav img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #072F5F;
+    display: flex;
+    justify-content: center;
+}
+
+.topnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 35px 100px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Abril Fatface', serif;
+}
+
+.topnav a:hover {
+    background-color: beige;
+    color: #072F5F;
+  }
+
+  .topnav a.active {
+    background-color: beige;
+    color: #072F5F;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #072F5F;
+  }
+
+  .topnav .icon {
+    display: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .topnav {
+        display: flex;
+        flex-direction: column;
+    }
+
+  }
+
+  /* footer styling */
+  footer{
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    align-items: center;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: beige;
+    color: #072F5F;
+    text-align: center;
+    height: 100px;
+    font-family: 'Yeseva One', cursive;
+    font-size: 30px;
+    text-shadow: none;
+  }
+
+  .socialMedia{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .socialMedia img {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+
+
+.contactFaq a{
+    color: #072F5F;
+    font-size:30px;
+}

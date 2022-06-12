@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Meteo Mapper</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+        <script src="./js/app.js"></script>
+    </head>
+<body>
+    <header>
+        <nav>
+            <a href="home" class= "logoNav">
+                <img src="./static/media/earth.svg" alt="logo with red background and white text"/>
+            </a>
+            <div class="topnav" id="myTopNav">
+              <a href="home">Home</a>
+              <a href="aboutus">About Us</a>
+              <a href="weather">Location Finder</a>
+                <a href="map">Map</a>
+              <a href="history">History</a>
+                <a href={{"logged_in"}}>My Profile</a>
+              <a href={{"logout"}}>Log Out</a>
+                </div>
+        </nav>
+    </header>
+    <main>
+        <h3>{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+       {{ message }}
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %} </h3>
+
+        <h2>Your saved searches</h2>
+        <h2>
+            {% for item in info %}
+            <li><a href={{item}}>{{ item }}</a></li>
+            <a href=delete/{{item}}>(Delete)</a>
+             {% endfor %}
+        </h2>
+        <div class="row">
+    {% if data.country_code and data.coordinate and data.temp and data.pressure and data.humidity %}
+    <div class="col-md-6 col-md-offset-3">
+      <h3>City name: {{data.cityname}}</h3>
+        <h3>Country code: {{data.country_code}}</h3>
+        <h3>Coordinate: {{data.coordinate}}</h3>
+        <h3>Temperature (in kelvin): {{data.temp}}</h3>
+        <h3>Temperature (in celsius): {{data.temp_cel}}</h3>
+        <h3>Pressure: {{data.pressure}} </h3>
+        <h3>Humidity: {{data.humidity}}</h3>
+
+    </div>
+{% endif %}
+  </div>
+         {% if data%}
+        <center><a href="Log_Result/{{data.cityname}}"><h2>Log result</h2></a></center>
+        {%endif%}
+        <center><a href="User_Log"><div><h2><strong>Go to Log page </strong></h2></div></a></center>
+    </main>
+    <footer>
+        <div class="address">
+            <p>Bristol / London </p>
+        </div>
+        <div class="socialMedia">
+            <a href="https://en-gb.facebook.com/caferouge.co.uk/" class="facebook">
+                <img src="./static/media/facebook.png" alt="blue facebook logo"/>
+            </a>
+
+            <a href="https://www.instagram.com/cafe_rouge/" class="instagram">
+                <img src="./static/media/instagram.png" alt="multicoloured instagram logo"/>
+            </a>
+
+            <a href="https://twitter.com/caferougetweet" class="instagram">
+                <img src="./static/media/twitter.png" alt="blue twitter logo"/>
+            </a>
+        </div>
+        <div class="contactFaq">
+            <a href="FAQ.html" class="FAQ">
+               FAQ
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

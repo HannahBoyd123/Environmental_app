@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/timeline.css') }}">
+        <script src="./static/js/app.js"> </script>
+<!--        <link rel="stylesheet" href="./css/about.css">-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/timeline.css') }}">
+
+<!--        <link href="./css/about.css" rel="stylesheet">-->
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="topnav" id="myTopNav">
+                    <a href="home" class= "logoNav">
+                    <img src="./static/media/earth.svg" alt="black and white globe logo"/></a>
+                    <a href="home">Home</a>
+                    <a href="aboutus">About Us</a>
+                    <a href="weather">Location Finder</a>
+                     <a href="map">Map</a>
+                    <a href="history">History</a>
+                    <a href="sign_up">Sign Up</a>
+                     {%if user_logged_in%}
+                    <a href={{"logged_in"}}>My Profile</a>
+                    <a href={{"logout"}}>Log Out</a>
+                    {%else%}
+                    <a href="login">Login</a>
+                    {%endif%}
+                </div>
+            </nav>
+        </header>
+        <div class="space"></div>
+            <div class="header">
+                <h1>Our Beginnings</h1>
+                <h2>The story behind Meteo Mapper.</h2>
+                <div class="progress-container"></div>
+                <div class="progress-bar" id="Bar"></div>
+        </div>
+    </div>
+
+    <div class="timeline">
+        <div class="container left">
+            <div class="border">
+                <div class="top">
+                    <h2>September 2021</h2>
+                    <h3>Starting Code First Girls</h3>
+                </div>
+                <div class="content expandMoreContent" id="showMoreContent9">
+                    <p>We started the CFG evening classes and began the journey of learning SQL and Python.</p>
+                </div>
+                <div class="expandMoreHolder">
+                    <span expand-more data-hidetext="Show Less" data-showtext="Show More" data-target="showMoreContent9" class="btn.expand">Show More</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container right">
+            <div class="border">
+                <div class="top">
+                    <h2>October 2021</h2>
+                    <h3>Completing our CFG Homeworks and Exam 1</h3>
+                </div>
+                <div class="content expandMoreContent" id="showMoreContent10">
+                    <p>We completed weekly homeworks and finished a Mock Exam.</p>
+                </div>
+                <div class="expandMoreHolder">
+                    <span expand-more data-hidetext="Show Less" data-showtext="Show More" data-target="showMoreContent10" class="btn.expand">Show More</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container left">
+            <div class="border">
+                <div class="top">
+                    <h2>November 2021</h2>
+                    <h3>Setting the Project</h3>
+                </div>
+                <div class="expandMoreContent" id="showMoreContent11">
+                    <p>We finished our first graded exam and were set our project groups and tasks.</p>
+                </div>
+                <div class="expandMoreHolder">
+                    <span expand-more data-hidetext="Show Less" data-showtext="Show More" data-target="showMoreContent11" class="btn.expand">Show More</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="border">
+                <div class="top">
+                    <h2>December 2021</h2>
+                    <h3>Project!</h3>
+                </div>
+                <div class="content expandMoreContent" id="showMoreContent12">
+                    <p> We created this project!</p>
+                </div>
+                <div class="expandMoreHolder">
+                    <span expand-more data-hidetext="Show Less" data-showtext="Show More" data-target="showMoreContent12" class="btn.expand">Show More</span>
+                </div>
+            </div>
+        </div>
+    </body>
+
+ <footer>
+    <div class="location">
+        <p>Bristol / London </p>
+    </div>
+    <div class="socialMedia">
+
+        <a href="https://github.com/panda88-hub" class="GitHub">
+            <img src="./static/media/github.svg" alt="github logo"/>
+        </a>
+
+        <a href="https://github.com/SamantaWildlife" class="GitHub">
+            <img src="./static/media/github.svg" alt="github logo"/>
+        </a>
+
+        <a href="https://github.com/HannahBoyd123" class="GitHub">
+            <img src="./static/media/github.svg" alt="github logo"/>
+        </a>
+
+    </div>
+    <div class="contactFaq">
+        <a href="FAQ.html" class="FAQ">
+           FAQ
+        </a>
+    </div>
+ </footer>
+</html>
